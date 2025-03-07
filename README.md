@@ -159,7 +159,34 @@ GenieLamp is an AI-powered automation assistant designed for seamless interactio
 ```
 
 ---
+## 🎨 Colors Used  
 
+| Name                      | Variable                  | Hex Code  |
+|---------------------------|--------------------------|----------|
+| Primary                   | `--color-primary`         | `#120d02` |
+| Primary Light             | `--color-primary-light`   | `#413d35` |
+| Primary Medium            | `--color-primary-meduim`  | `#daa53d` |
+| Dark                      | `--color-dark`            | `#0e0b29` |
+| Natural                   | `--color-natural`         | `#F9FAFB` |
+| Accent 100                | `--color-accent-100`      | `#FDF7EC` |
+| Accent 1000               | `--color-accent-1000`     | `#473209` |
+| Secondary                 | `--color-secondary`       | `#716e67` |
+| Accent                    | `--color-accent`         | `#e7b144` |
+| Accent Light              | `--color-accent-light`   | `#e7b1441a` |
+
+---
+
+## 🔠 Fonts Used  
+
+| Font Name         | Font Variable          | Source File |
+|-------------------|-----------------------|-------------|
+| Segoe UI         | `--font-segoe-ui`      | `./assets/Fonts/SegoeUI.ttf` |
+| Segoe UI Bold    | `--font-segoe-ui`      | `./assets/Fonts/SegoeUIBold.ttf` |
+| Segoe TV         | `N/A`                   | `/fonts/SegoeTVRegular.ttf` |
+| Segoe TV Bold    | `N/A`                   | `/fonts/SegoeTVBold.ttf` |
+| Chinese MSYH     | `N/A`                   | `/fonts/chinese.msyh.ttf` |
+
+---
 ## 📦 Installation  
 
 1️⃣ **Clone the repository:**  
