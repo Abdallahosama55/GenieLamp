@@ -40,7 +40,7 @@ const usedBadges = Object.keys(dependencies)
 // Generate folder structure as a tree
 function generateFolderTree(dir, prefix = "", isLast = true) {
   let structure = "";
-  const files = fs.readdirSync(dir).filter((file) => file !== "node_modules");
+  const files = fs.readdirSync(dir).filter((file) => file !== "node_modules" && file !== ".git");
   const lastIndex = files.length - 1;
 
   files.forEach((file, index) => {
