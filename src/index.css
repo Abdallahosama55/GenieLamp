@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@font-face {
+  font-family: "SegoeUI";
+  src: url("./assets/Fonts/SegoeUI.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Segoe TV';
+  src: url('/fonts/SegoeTVRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe TV';
+  src: url('/fonts/SegoeTVBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chinese MSYH';
+  src: url('/fonts/chinese.msyh.ttf') format('truetype'); /* Adjust the path if necessary */
+  font-weight: normal;
+  font-style: normal;
+}
+/* Apply fonts globally */
+body {
+  font-family:  'Segoe TV', sans-serif;
+}
+@font-face {
+  font-family: "SegoeUI";
+  src: url("./assets/Fonts/SegoeUIBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+@theme {
+  /* Primary Colors */
+  --color-primary: #120d02;
+  --color-primary-light: #413d35;
+  --color-primary-meduim: #daa53d;
+  --color-dark: #0e0b29;
+  --color-natural: #F9FAFB;
+  --color-accent-100:#FDF7EC;
+  --color-accent-1000:#473209;
+
+  --font-segoe-ui: [ "Segoe UI", "sans-serif"];
+
+  /* Secondary Colors */
+  --color-secondary: #716e67;
+
+  /* Accent Colors */
+  --color-accent: #e7b144;
+  --color-accent-light: #e7b1441a;
+}
+
+
+
+
+
