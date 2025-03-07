@@ -29,6 +29,8 @@ const techBadges = {
   "styled-components": "![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)",
   axios: "![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)",
   redux: "![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)",
+  typescript: "![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)",
+  shadcn: "![ShadCN](https://img.shields.io/badge/ShadCN-F28500?style=for-the-badge&logo=shadcn&logoColor=white)",
 };
 
 // Generate badges based on detected dependencies
