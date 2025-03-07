@@ -1,9 +1,15 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Convert ES module paths to CommonJS paths
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Project details
 const projectName = "GenieLamp";
-const description = "GenieLamp is an advanced AI-powered assistant for seamless automation and user interaction.";
+const description =
+  "GenieLamp is an AI-powered automation assistant designed for seamless interaction and productivity enhancement.";
 
 // Detect technologies from package.json
 const packageJsonPath = path.join(__dirname, "package.json");
@@ -27,68 +33,106 @@ const techBadges = {
 
 // Generate badges based on detected dependencies
 const usedBadges = Object.keys(dependencies)
-  .filter(dep => techBadges[dep])
-  .map(dep => techBadges[dep])
+  .filter((dep) => techBadges[dep])
+  .map((dep) => techBadges[dep])
   .join(" ");
 
-// Generate folder structure recursively
-function generateFolderStructure(dir, prefix = "") {
+// Generate folder structure as a tree
+function generateFolderTree(dir, prefix = "", isLast = true) {
   let structure = "";
-  const files = fs.readdirSync(dir);
-  files.forEach(file => {
+  const files = fs.readdirSync(dir).filter((file) => file !== "node_modules");
+  const lastIndex = files.length - 1;
+
+  files.forEach((file, index) => {
     const filePath = path.join(dir, file);
     const stats = fs.statSync(filePath);
+    const isLastItem = index === lastIndex;
+    const connector = isLastItem ? "└── " : "├── ";
+    const newPrefix = prefix + (isLast ? "    " : "│   ");
+
     if (stats.isDirectory()) {
-      structure += `${prefix}- 📂 ${file}\n`;
-      structure += generateFolderStructure(filePath, `${prefix}  `);
+      structure += `${prefix}${connector}📂 ${file}\n`;
+      structure += generateFolderTree(filePath, newPrefix, isLastItem);
     } else {
-      structure += `${prefix}- 📄 ${file}\n`;
+      structure += `${prefix}${connector}📄 ${file}\n`;
     }
   });
+
   return structure;
 }
 
-const folderStructure = generateFolderStructure(__dirname);
+const folderStructure = `📁 Project Root\n${generateFolderTree(__dirname)}`;
 
 // README template
-const readmeContent = `# ${projectName}
+const readmeContent = `# ${projectName} 🚀  
 
-${description}
+${description}  
 
-## 🚀 Technologies Used
+## 🌟 Features  
+✅ AI-powered automation  
+✅ Seamless user interaction  
+✅ Highly scalable architecture  
+✅ Modern UI/UX design  
 
-${usedBadges || "No technologies detected"}
+---
 
-## 📂 Folder Structure
+## 📌 Technologies Used  
+
+${usedBadges || "No technologies detected"}  
+
+---
+
+## 📂 Folder Structure  
 
 \`\`\`
 ${folderStructure}
 \`\`\`
 
-## 📦 Installation & Usage
+---
 
-1. Clone the repository  
+## 📦 Installation  
+
+1️⃣ **Clone the repository:**  
    \`\`\`bash
    git clone https://github.com/Abdallahosama55/GenieLamp.git
    cd GenieLamp
    \`\`\`
-2. Install dependencies  
+
+2️⃣ **Install dependencies:**  
    \`\`\`bash
    npm install
    \`\`\`
-3. Run the project  
+
+3️⃣ **Run the project:**  
    \`\`\`bash
    npm run dev
    \`\`\`
 
-## 🤝 Contributing
+---
 
-Feel free to fork and contribute via pull requests.
+## ⚙️ Usage  
 
-## 📜 License
+- Start the app using \`npm run dev\`.  
+- Navigate to \`http://localhost:3000\` to see it in action.  
+- Modify components inside \`src/\` for customization.  
 
-This project is licensed under the MIT License.
+---
 
+## 🤝 Contribution  
+
+🔹 Fork the repo and create a new branch  
+🔹 Make changes and submit a PR  
+🔹 Report bugs and suggest features via Issues  
+
+---
+
+## 📜 License  
+
+This project is licensed under the **MIT License**.  
+
+---
+
+🚀 **Developed with ❤️ by Abdallah Osama**  
 `;
 
 fs.writeFileSync("README.md", readmeContent, "utf8");
