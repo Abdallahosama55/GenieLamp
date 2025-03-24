@@ -228,5 +228,6 @@ GenieLamp is an AI-powered automation assistant designed for seamless interactio
 This project is licensed under the **MIT License**.  
 
 ---
+![Image](https://github.com/user-attachments/assets/f1c507ed-22b1-4bb7-b5cb-0bf207a6e693)
 
 🚀 **Developed with ❤️ by Abdallah Osama**  
