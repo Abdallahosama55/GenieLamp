@@ -1,5 +1,5 @@
 import img1 from "@assets/Img/section1.svg";
-import gpt from "@assets/Img/gpt.svg";
+import gpt from "@assets/Img/section.webp";
 import AppButton from '../../../../components/shared/AppButton/AppButton';
 import { FaCircle } from 'react-icons/fa';
 
@@ -26,8 +26,12 @@ function HomeSection1() {
             Turn Your Business into a Magic Lamp, Putting a Genie in Every Customer’s Phone
           </h1>
           <span className='text-secondary  font-medium'>We give your AI a face</span>
-          <AppButton  Title={"Schedule a Demo"} onClick={handleScheduleDemo} className='py-3'/>
-            
+       
+            <div className=" flex gap-3 items-center justify-center">
+
+            <AppButton  Title={"Schedule a Demo"} onClick={handleScheduleDemo} className='py-3'/>
+            <AppButton  Title={"Meet your genie"} onClick={handleScheduleDemo} className='py-3  bg-accent-100' buttonType="outline"/>
+            </div>
           
         </div>
 

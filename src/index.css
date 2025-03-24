@@ -58,8 +58,41 @@ body {
   --color-accent: #e7b144;
   --color-accent-light: #e7b1441a;
 }
+body{
+  overflow-x: hidden;
+}
+
+.accent-filter {
+  filter: invert(73%) sepia(43%) saturate(747%) hue-rotate(359deg) brightness(95%) contrast(91%);
+}
+
+/* Pop-up animation */
+@keyframes popUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 
+@keyframes popUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
+.animate-pop-up {
+  animation: popUp 0.5s ease-out forwards;
+  animation-delay: calc(0.1s * var(--index)); /* Staggered delay based on index */
+}
 
 

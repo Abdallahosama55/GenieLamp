@@ -1,5 +1,6 @@
 
-import { Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem} from "../../../../components/ui/carousel"
+import AutoScroll from "embla-carousel-auto-scroll"; // Added import
 import vir from "@assets/Img/vir.png";
 import sma from "@assets/Img/sma.png";
 import aug from "@assets/Img/aug.png";
@@ -11,6 +12,7 @@ import hea from "@assets/Img/hea.png";
 import rea from "@assets/Img/rea.png";
 import tas from "@assets/Img/tas.png";
 import { CarouselNext, CarouselPrevious } from "../../../../components/ui/carousel";
+import { useRef } from "react";
 
 const useCases = [
   {
@@ -86,26 +88,34 @@ const useCases = [
 ];
 
 export default function HomeSection7() {
+  const sectionRef = useRef(null); // Ref for the section
+
+
   return (
-    <section className="py-16 lg:mx-0 mx-5 ">
+    <section ref={sectionRef} className="py-16 lg:mx-0 mx-5">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Use Cases</h2>
 
       <Carousel
+     
         opts={{
-  
           slidesToScroll: 1,
-        
-          
         }}
-        className="w-full "
+        plugins={[
+          AutoScroll({
+            stopOnInteraction: false,
+            speed: 0.9,
+            startDelay: 1000,
+          }),
+        ]}
+        className="w-full"
       >
         <CarouselContent>
-          <div className=" lg:ps-[100px] "></div>
+          <div className="lg:ps-[100px]"></div>
           {useCases.map((useCase) => (
-            <CarouselItem key={useCase.id} className="md:basis-1/2  grid   lg:basis-4/14 ">
-              <div className="rounded-lg overflow-hidden border  bg-natural border-gray-200   flex flex-col">
+            <CarouselItem key={useCase.id} className="md:basis-1/2 grid lg:basis-4/14">
+              <div className="rounded-lg overflow-hidden border bg-natural border-gray-200 flex flex-col">
                 <div className="relative min-h-48 w-full">
-                  <img src={useCase.image } alt={useCase.title}  className="   h-72 w-full" />
+                  <img src={useCase.image} alt={useCase.title} className="h-72 w-full" />
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="text-xl font-semibold mb-2">{useCase.title}</h3>
@@ -115,13 +125,12 @@ export default function HomeSection7() {
             </CarouselItem>
           ))}
         </CarouselContent>
-            {/* Navigation buttons centered below content */}
-            <div className="flex lg:hidden justify-center items-center gap-0 mt-8">
-          <CarouselPrevious className="  relative" />
-          <CarouselNext className="  relative" />
+        <div className="flex lg:hidden justify-center items-center gap-0 mt-8">
+          <CarouselPrevious className="relative" />
+          <CarouselNext className="relative" />
         </div>
       </Carousel>
     </section>
-  )
+  );
 }
 
